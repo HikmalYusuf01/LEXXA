@@ -186,6 +186,15 @@ function scrollToBranch() {
         });
     }
 }
+// Di script.js, cari bagian pre-load gambar sequence
+// Bungkus dengan setTimeout agar memberikan kesempatan Marquee bernapas dulu
+setTimeout(() => {
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images.push(img);
+    }
+}, 1500); // Menunda loading 240 gambar selama 1.5 detik setelah web dibuka
 // Deteksi Scroll yang dikalibrasi (DIPERLAMBAT)
 window.addEventListener("scroll", () => {
     isInitialLoad = false; 

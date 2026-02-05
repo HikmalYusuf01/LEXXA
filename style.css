@@ -650,3 +650,35 @@ body {
     filter: grayscale(0%); /* Menghapus efek hitam putih */
     transform: scale(1.05); /* Sedikit membesar agar lebih interaktif */
 }
+.top-marquee {
+    background: var(--lexxa-red);
+    padding: 30px 0;
+    overflow: hidden;
+    /* Mencegah pergeseran layout */
+    min-height: 310px; 
+}
+
+.marquee-content {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollMarquee 30s linear infinite;
+    /* Trik rahasia performa mulus: */
+    will-change: transform; 
+}
+
+.marquee-content img {
+    height: 250px;
+    width: auto;
+    border-radius: 8px;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+    background-color: #333; /* Warna cadangan sebelum gambar muncul */
+    object-fit: cover;
+}
+
+.marquee-content img:hover,
+.marquee-content img:active {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
