@@ -5,13 +5,6 @@
 
 // 1. DATA CONFIGURATION
 const branchData = {
-    'juanda': {
-        studio: 'LEXXA BARBERIA',
-        location: 'Jl. Ir. H. Juanda',
-        address: 'Jl. Ir. H. Juanda, Air Putih, Kec. Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75124',
-        services: ['Wash', 'Curly Perm', 'Haircut', 'Massage'],
-        mapUrl: 'https://maps.google.com/?q=Lexxa+Barberia+Juanda'
-    },
     'wijaya': {
         studio: 'LEXXA BARBERIA',
         location: 'Jl. Wijaya Kusuma',
@@ -99,20 +92,6 @@ function filterArtistManual(category, element) {
 }
 
 function filterLogic(category) {
-    const artists = document.querySelectorAll('.artist-card');
-    artists.forEach(card => {
-        const cardBranch = card.getAttribute('data-branch');
-        const cardParent = card.parentElement;
-
-        if (category === 'all' || cardBranch === category) {
-            cardParent.style.display = 'block';
-            setTimeout(() => { card.style.opacity = '1'; }, 10);
-        } else {
-            card.style.opacity = '0';
-            cardParent.style.display = 'none';
-        }
-    });
-}
 
 function syncFilterButtons(branchKey) {
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -232,8 +211,8 @@ window.addEventListener("scroll", () => {
 
 // Perbaikan Intro (DIPERLAMBAT)
 window.onload = () => {
-    changeBranch('juanda', document.querySelector('.tab.active'));
-    filterLogic('all');
+    changeBranch('wijaya', document.querySelector('.tab.active'));
+    filterLogic();
 
     images[0].onload = () => {
         render();
